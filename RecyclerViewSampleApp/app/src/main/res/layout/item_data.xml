@@ -26,7 +26,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="90dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:paddingTop="5dp"
+        android:gravity="center_vertical"
         android:layout_marginStart="90dp" />
 
     <TextView
@@ -39,7 +39,7 @@
         style="@style/Text.Secondary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:paddingTop="5dp"
+        android:gravity="center_vertical"
         android:layout_marginStart="90dp" />
 
 </android.support.constraint.ConstraintLayout>
