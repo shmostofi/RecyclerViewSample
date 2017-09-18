@@ -1,5 +1,6 @@
 package com.example.shokooh.recyclerviewsampleapp.main.logic;
 
+import com.example.shokooh.recyclerviewsampleapp.main.data.dataInterface;
 import com.example.shokooh.recyclerviewsampleapp.main.view.viewInterface;
 
 /**
@@ -29,15 +30,17 @@ public class Controller {
     }
     */
     private viewInterface vi;
+    private dataInterface di;
 
-    public Controller(viewInterface view) {
+    public Controller(viewInterface view, dataInterface data) {
         vi = view ;
+        di = data ;
         setData();
     }
 
     private void setData()
     {
-        vi.setData(); // 'get' data from db & sent as param
+        vi.setData(di.getData());
 
     }
 }

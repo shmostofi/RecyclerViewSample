@@ -4,7 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.shokooh.recyclerviewsampleapp.R;
+import com.example.shokooh.recyclerviewsampleapp.main.data.FakeDataSource;
+import com.example.shokooh.recyclerviewsampleapp.main.data.ListItem;
 import com.example.shokooh.recyclerviewsampleapp.main.logic.Controller;
+
+import java.util.List;
 
 public class ListActivity extends AppCompatActivity implements viewInterface{
 
@@ -29,11 +33,11 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        ctrl = new Controller(this);
+        ctrl = new Controller(this, new FakeDataSource());
     }
 
     @Override
-    public void setData() {//TODO: add data as param
+    public void setData(List<ListItem> data) {//TODO: add data as param
         /*
         fill in the recyclerView Items with received data from ctrl
          */
