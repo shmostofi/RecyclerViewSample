@@ -1,7 +1,9 @@
-package com.example.shokooh.recyclerviewsampleapp;
+package com.example.shokooh.recyclerviewsampleapp.View;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.shokooh.recyclerviewsampleapp.R;
 
 public class ListActivity extends AppCompatActivity {
 
