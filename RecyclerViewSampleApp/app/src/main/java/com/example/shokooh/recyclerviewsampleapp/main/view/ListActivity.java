@@ -4,24 +4,38 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.shokooh.recyclerviewsampleapp.R;
+import com.example.shokooh.recyclerviewsampleapp.main.logic.Controller;
 
-/*
-what methods & variables this class should have
-what are its behaviours
- */
-public class ListActivity extends AppCompatActivity {
+public class ListActivity extends AppCompatActivity implements viewInterface{
 
     /*
     instance of controller - ctrl
     instance of recyclerView
+    instance of items
+    array of listItem objects [data]
 
     action :
-    1- request ctrl to fetch data [from db etc.]  for list-items, then display
-    2- get click events from user, and generate request for data again & inflate the DetailsActivity
+    1- @ start : "generate request" for ctrl to fetch data [from db etc.]  for list-items, then 'display'
+    2- @ user "click" : "generate data" request from ctrl & 'inflate' [done by ctrl] the DetailsActivity
+
+    viewInterface: function prototypes - helps with modularity
+
      */
+
+    private Controller ctrl ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+        ctrl = new Controller(this);
+    }
+
+    @Override
+    public void setData() {//TODO: add data as param
+        /*
+        fill in the recyclerView Items with received data from ctrl
+         */
     }
 }
