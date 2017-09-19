@@ -17,13 +17,12 @@
 
     <TextView
         android:id="@+id/tv_detail"
+        style="@style/Text.Secondary"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="This is a sample note for this sample project. Main goal is to practice the MVC desgin pattern and RecyclerView usage."
-        android:paddingBottom="20dp"
-        android:paddingTop="5dp"
-        android:paddingLeft="5dp"
         android:layout_below="@+id/tv_date"
-        style="@style/Text.Secondary"
-        />
+        android:paddingBottom="20dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:text="This is a sample note for this sample project. Main goal is to practice the MVC design pattern and RecyclerView usage." />
 </RelativeLayout>

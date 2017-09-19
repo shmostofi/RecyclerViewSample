@@ -37,7 +37,7 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
     }
 
     @Override
-    public void setData(List<ListItem> data) {//TODO: add data as param
+    public void setData(List<ListItem> data) {
         /*
         fill in the recyclerView Items with received data from ctrl
          */

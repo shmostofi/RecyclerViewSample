@@ -14,21 +14,8 @@ public class Controller {
     * it just create instance of ctrl
     * ctrl does the job itself, provide data etc.
     * DUTY of ctrl is to just pass commands to different modules
+*/
 
-    EXAMPLE:
-
-    public Controller(ViewInterface view, DataSourceInterface dataSource) {
-        this.view = view;
-        this.dataSource = dataSource;
-        getListFromDataSource();
-    }
-
-    public void getListFromDataSource(){
-        view.setUpAdapterAndView(
-                dataSource.getListOfData()      // ctrl just calls 'get' from datasource & 'set' from view - they are responsible to implement these properly
-        );
-    }
-    */
     private viewInterface vi;
     private dataInterface di;
 
