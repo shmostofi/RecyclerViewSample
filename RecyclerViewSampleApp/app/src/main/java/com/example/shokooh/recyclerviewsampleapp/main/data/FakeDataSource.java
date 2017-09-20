@@ -2,6 +2,8 @@ package com.example.shokooh.recyclerviewsampleapp.main.data;
 
 import android.support.annotation.NonNull;
 
+import com.example.shokooh.recyclerviewsampleapp.R;
+
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -17,33 +19,33 @@ public class FakeDataSource implements dataInterface {
     private static final int sizeOfCollection = 12 ;
     private Random random;
 
-    String[] contents = {
+    private final String[] contents = {
             "here is message one",
             "here is message two",
             "here is message three",
             "here is message four",
     };
 
-    String[] dates = {
+    private final String[] dates = {
             "6:30AM 06/01/2017",
             "9:26PM 04/22/2013",
             "2:01PM 12/02/2015",
             "2:43AM 09/7/2018"
     };
 
-//    int[] colors = {
-//            #F06292,
-//
-//
-//    };
-
+    private final int[] drawables = {
+            R.drawable.green_drawable,
+            R.drawable.red_drawable,
+            R.drawable.blue_drawable,
+            R.drawable.yellow_drawable
+    };
     @Override
     public List<ListItem> getData() {
 
         ArrayList<ListItem> outputList = new ArrayList<>();
         for(int i=0 ; i<sizeOfCollection ; i++)
         {
-            ListItem li = new ListItem(dates[random.nextInt(4)], contents[random.nextInt(4)]);
+            ListItem li = new ListItem(drawables[random.nextInt(4)],dates[random.nextInt(4)], contents[random.nextInt(4)]);
             outputList.add(li);
 
         }

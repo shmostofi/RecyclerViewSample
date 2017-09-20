@@ -9,8 +9,8 @@ public class ListItem {
     private String date;
     private String content;
 
-    public ListItem(String date, String content) {
-//        this.color = color;
+    public ListItem(int color, String date, String content) {
+        this.color = color;
         this.date = date;
         this.content = content;
     }

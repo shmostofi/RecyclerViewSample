@@ -54,6 +54,7 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
         {
             private TextView tvDate;
             private TextView tvContent;
+//            private
             // TODO : add color
 
             public CustomViewHolder(View itemView) {
