@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tv_date"
+        android:id="@+id/i_tvDateDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/cyan"
@@ -16,11 +16,11 @@
         style="@style/Text.Primary" />
 
     <TextView
-        android:id="@+id/tv_detail"
+        android:id="@+id/i_tvContentDetail"
         style="@style/Text.Secondary"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tv_date"
+        android:layout_below="@+id/i_tvDateDetail"
         android:paddingBottom="20dp"
         android:paddingLeft="5dp"
         android:paddingTop="5dp"

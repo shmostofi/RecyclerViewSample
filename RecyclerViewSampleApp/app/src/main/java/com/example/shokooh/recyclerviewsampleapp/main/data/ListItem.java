@@ -14,4 +14,16 @@ public class ListItem {
         this.date = date;
         this.content = content;
     }
+
+    public int getColor() {
+        return color;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getContent() {
+        return content;
+    }
 }

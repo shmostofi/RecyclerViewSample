@@ -10,5 +10,5 @@ import java.util.List;
 
 public interface viewInterface {
 
-    public void setData(List<ListItem> data);
+    public void setDataList(List<ListItem> data);
 }
