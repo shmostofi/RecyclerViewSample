@@ -26,4 +26,16 @@ public class ListItem {
     public String getContent() {
         return content;
     }
+
+    public void setColor(int color) {
+        this.color = color;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

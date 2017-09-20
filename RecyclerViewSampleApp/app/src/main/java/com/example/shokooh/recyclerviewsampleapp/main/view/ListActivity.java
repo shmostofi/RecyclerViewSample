@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.shokooh.recyclerviewsampleapp.R;
@@ -54,20 +55,18 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
         {
             private TextView tvDate;
             private TextView tvContent;
-//            private
-            // TODO : add color
+            private ImageView ivLogo;
 
             public CustomViewHolder(View itemView) {
                 super(itemView);
                 tvDate = (TextView) itemView.findViewById(R.id.i_tvDate);
                 tvContent = (TextView) itemView.findViewById(R.id.i_tvContent);
+                ivLogo = (ImageView) itemView.findViewById(R.id.i_ivLogo);
             }
         }
 
         @Override
         public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            // inflate a view
-            // create a handler with this view as input
             View v = li.inflate(R.layout.item_data, parent, false);
             return new CustomViewHolder(v);
         }
@@ -78,6 +77,7 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
             ListItem currentItem = dataList.get(position);
             holder.tvDate.setText(currentItem.getDate());
             holder.tvContent.setText(currentItem.getContent());
+            holder.ivLogo.setImageResource(currentItem.getColor());
         }
 
         @Override
