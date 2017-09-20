@@ -2,6 +2,10 @@ package com.example.shokooh.recyclerviewsampleapp.main.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.shokooh.recyclerviewsampleapp.R;
 import com.example.shokooh.recyclerviewsampleapp.main.data.FakeDataSource;
@@ -12,21 +16,14 @@ import java.util.List;
 
 public class ListActivity extends AppCompatActivity implements viewInterface{
 
-    /*
-    instance of controller - ctrl
-    instance of recyclerView
-    instance of items
-    array of listItem objects [data]
-
-    action :
-    1- @ start : "generate request" for ctrl to fetch data [from db etc.]  for list-items, then 'display'
-    2- @ user "click" : "generate data" request from ctrl & 'inflate' [done by ctrl] the DetailsActivity
-
-    viewInterface: function prototypes - helps with modularity
-
-     */
-
     private Controller ctrl ;
+    private RecyclerView rv;
+    private List<ListItem> data;
+    private RecyclerView.Adapter adp;
+    private LayoutInflater li ;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +31,45 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
         setContentView(R.layout.activity_list);
 
         ctrl = new Controller(this, new FakeDataSource());
+        adp = new CustomAdapter();
+
+
     }
 
     @Override
-    public void setData(List<ListItem> data) {
-        /*
-        TODO: fill in the recyclerView Items with received data from ctrl
-         */
+    public void setData(List<ListItem> dataIn) {
+        data = dataIn ;
+
+
+    }
+
+    // public ??
+    public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder>
+    {
+        // public ??
+        public class CustomViewHolder extends RecyclerView.ViewHolder
+        {
+            public CustomViewHolder(View itemView) {
+                super(itemView);
+            }
+        }
+
+        @Override
+        public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            // inflate a view
+            // create a handler with this view as input
+            View v = li.Inflate(R.layout.item_data, parent, false);
+            return null;
+        }
+
+        @Override
+        public void onBindViewHolder(CustomViewHolder holder, int position) {
+            // data should be filled in
+        }
+
+        @Override
+        public int getItemCount() {
+            return data.size();
+        }
     }
 }
