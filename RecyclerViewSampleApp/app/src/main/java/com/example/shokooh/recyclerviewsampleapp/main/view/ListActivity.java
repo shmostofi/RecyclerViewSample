@@ -26,17 +26,14 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
     private RecyclerView.Adapter adp;
     private LayoutInflater li ;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-
-        ctrl = new Controller(this, new FakeDataSource());
         rv = (RecyclerView) findViewById(R.id.i_rvMain);
         li = getLayoutInflater();
+
+        ctrl = new Controller(this, new FakeDataSource());
     }
 
     public void setDataList(List<ListItem> dataIn) {

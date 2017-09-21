@@ -16,6 +16,10 @@ import java.util.Random;
 
 public class FakeDataSource implements dataInterface {
 
+    public FakeDataSource() {
+        random = new Random();
+    }
+
     private static final int sizeOfCollection = 12 ;
     private Random random;
 
@@ -47,7 +51,6 @@ public class FakeDataSource implements dataInterface {
         {
             ListItem li = new ListItem(drawables[random.nextInt(4)],dates[random.nextInt(4)], contents[random.nextInt(4)]);
             outputList.add(li);
-
         }
         return outputList;
     }
