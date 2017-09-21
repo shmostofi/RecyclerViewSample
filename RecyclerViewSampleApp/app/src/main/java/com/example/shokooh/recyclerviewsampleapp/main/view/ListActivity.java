@@ -23,7 +23,7 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
     private Controller ctrl ;
     private RecyclerView rv;
     private List<ListItem> dataList;
-    private RecyclerView.Adapter adp;
+    private CustomAdapter adp;
     private LayoutInflater li ;
 
     @Override
@@ -44,8 +44,7 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
         rv.setAdapter(adp);
     }
 
-    // public ??
-    public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder>
+    private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder>
     {
         // public ??
         public class CustomViewHolder extends RecyclerView.ViewHolder

@@ -25,7 +25,7 @@ public class Controller {
         setData();
     }
 
-    private void setData()
+    public void setData()
     {
         vi.setDataList(di.getData());
 
