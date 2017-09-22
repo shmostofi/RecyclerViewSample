@@ -1,5 +1,8 @@
 package com.example.shokooh.recyclerviewsampleapp.main.logic;
 
+import android.view.View;
+
+import com.example.shokooh.recyclerviewsampleapp.main.data.ListItem;
 import com.example.shokooh.recyclerviewsampleapp.main.data.dataInterface;
 import com.example.shokooh.recyclerviewsampleapp.main.view.viewInterface;
 
@@ -23,9 +26,12 @@ public class Controller {
         vi.setDataList(di.getData());
     }
 
-    public void onListItemClicked()
+    public void onListItemClick(ListItem li, View v)
     {
-
+        vi.startDetailActivity(li.getContent(),
+                li.getDate(),
+                li.getColor(),
+                v);
     }
 }
 

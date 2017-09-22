@@ -2,7 +2,6 @@ package com.example.shokooh.recyclerviewsampleapp.main.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -36,6 +35,11 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
         ctrl = new Controller(this, new FakeDataSource());
     }
 
+    @Override
+    public void startDetailActivity(String contect, String Date, int colorResource, View v) {
+        
+    }
+
     public void setDataList(List<ListItem> dataIn) {
         dataList = dataIn ;
         LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -54,8 +58,8 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
 
             @Override
             public void onClick(View v) {
-                // TODO : pass sth about the clicked item to ctrl
-                ctrl.onListItemClicked();
+                ListItem clickedItem = dataList.get(getAdapterPosition());
+                ctrl.onListItemClick(clickedItem, v);
             }
 
             public CustomViewHolder(View itemView) {
