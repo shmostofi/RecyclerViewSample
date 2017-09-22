@@ -9,13 +9,6 @@ import com.example.shokooh.recyclerviewsampleapp.main.view.viewInterface;
 
 public class Controller {
 
-/*
-    * View does not make requests.
-    * it just create instance of ctrl
-    * ctrl does the job itself, provide data etc.
-    * DUTY of ctrl is to just pass commands to different modules
-*/
-
     private viewInterface vi;
     private dataInterface di;
 
@@ -28,6 +21,10 @@ public class Controller {
     public void setData()
     {
         vi.setDataList(di.getData());
+    }
+
+    public void onListItemClicked()
+    {
 
     }
 }

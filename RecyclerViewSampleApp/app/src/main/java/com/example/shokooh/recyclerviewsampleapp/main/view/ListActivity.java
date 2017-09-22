@@ -46,12 +46,17 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
 
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder>
     {
-        // public ??
-        public class CustomViewHolder extends RecyclerView.ViewHolder
+        class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
         {
             private TextView tvDate;
             private TextView tvContent;
             private ImageView ivLogo;
+
+            @Override
+            public void onClick(View v) {
+                // TODO : pass sth about the clicked item to ctrl
+                ctrl.onListItemClicked();
+            }
 
             public CustomViewHolder(View itemView) {
                 super(itemView);
