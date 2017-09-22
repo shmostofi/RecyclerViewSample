@@ -58,6 +58,9 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
         rv.setAdapter(adp);
     }
 
+    // TODO: 22/09/2017 write the Add, Delete & New note
+
+
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder>
     {
         class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
