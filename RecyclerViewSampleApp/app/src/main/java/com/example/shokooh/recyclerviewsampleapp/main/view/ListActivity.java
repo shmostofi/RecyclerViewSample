@@ -1,5 +1,6 @@
 package com.example.shokooh.recyclerviewsampleapp.main.view;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +20,11 @@ import java.util.List;
 
 public class ListActivity extends AppCompatActivity implements viewInterface{
 
+    private final static String EXTRA_DATE = "EXTRA_DATE";
+    private final static String EXTRA_CONTENT = "EXTRA_CONTENT";
+    private final static String EXTRA_COLOR = "EXTRA_COLOR";
+
+
     private Controller ctrl ;
     private RecyclerView rv;
     private List<ListItem> dataList;
@@ -36,8 +42,12 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
     }
 
     @Override
-    public void startDetailActivity(String contect, String Date, int colorResource, View v) {
-        
+    public void startDetailActivity(String content, String date, int colorResource, View v) {
+        Intent i = new Intent(this, DetailActivity.class);
+        i.putExtra(EXTRA_CONTENT, content);
+        i.putExtra(EXTRA_DATE, date);
+        i.putExtra(EXTRA_COLOR, colorResource);
+        startActivity(i);
     }
 
     public void setDataList(List<ListItem> dataIn) {
@@ -55,6 +65,7 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
             private TextView tvDate;
             private TextView tvContent;
             private ImageView ivLogo;
+            private ViewGroup container;
 
             @Override
             public void onClick(View v) {
@@ -67,6 +78,9 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
                 tvDate = (TextView) itemView.findViewById(R.id.i_tvDate);
                 tvContent = (TextView) itemView.findViewById(R.id.i_tvContent);
                 ivLogo = (ImageView) itemView.findViewById(R.id.i_ivLogo);
+                container = (ViewGroup) itemView.findViewById(R.id.i_layoutListItem);
+
+                container.setOnClickListener(this);
             }
         }
 

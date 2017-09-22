@@ -13,5 +13,5 @@ import java.util.List;
 public interface viewInterface {
 
     void setDataList(List<ListItem> data);
-    void startDetailActivity(String contect, String Date, int colorResource, View v);
+    void startDetailActivity(String content, String date, int colorResource, View v);
 }
