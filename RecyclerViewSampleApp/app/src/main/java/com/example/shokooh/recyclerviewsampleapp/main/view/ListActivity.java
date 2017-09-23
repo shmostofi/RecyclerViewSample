@@ -1,6 +1,7 @@
 package com.example.shokooh.recyclerviewsampleapp.main.view;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,20 +18,22 @@ import com.example.shokooh.recyclerviewsampleapp.main.data.FakeDataSource;
 import com.example.shokooh.recyclerviewsampleapp.main.data.ListItem;
 import com.example.shokooh.recyclerviewsampleapp.main.logic.Controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
-public class ListActivity extends AppCompatActivity implements viewInterface{
+public class ListActivity extends AppCompatActivity implements viewInterface, View.OnClickListener{
 
     private final static String EXTRA_DATE = "EXTRA_DATE";
     private final static String EXTRA_CONTENT = "EXTRA_CONTENT";
     private final static String EXTRA_COLOR = "EXTRA_COLOR";
-
 
     private Controller ctrl ;
     private RecyclerView rv;
     private List<ListItem> dataList;
     private CustomAdapter adp;
     private LayoutInflater li ;
+    private FloatingActionButton fabNewItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,9 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
         setContentView(R.layout.activity_list);
         rv = (RecyclerView) findViewById(R.id.i_rvMain);
         li = getLayoutInflater();
+        fabNewItem = (FloatingActionButton) findViewById(R.id.i_fabNewItem);
+        fabNewItem.setOnClickListener(this);
+
 
         ctrl = new Controller(this, new FakeDataSource());
     }
@@ -144,5 +150,22 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
         };
 
         return simpleItemTouchCallback;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.i_fabNewItem)
+            ctrl.onAddNewClicked(v);
+    }
+
+    @Override
+    public void addNewItem(View v) {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss MM/dd/yyyy");
+        String currentDateandTime = sdf.format(new Date());
+
+        startDetailActivity("", currentDateandTime, R.drawable.green_drawable, v);
+
+        //TODO : add function to detailAct to save user input
     }
 }
