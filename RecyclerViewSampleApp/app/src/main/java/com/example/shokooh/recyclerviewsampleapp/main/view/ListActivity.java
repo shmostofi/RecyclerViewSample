@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,10 +57,17 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
         rv.setLayoutManager(llm);
         adp = new CustomAdapter();
         rv.setAdapter(adp);
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(createHelperCallback());
+        itemTouchHelper.attachToRecyclerView(rv);
     }
 
-    // TODO: 22/09/2017 write the Add, Delete & New note
-
+    @Override
+    public void deleteListItem(int position) {
+        dataList.remove(position);
+//        setDataList(dataList);
+        adp.notifyItemRemoved(position);
+    }
 
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder>
     {
@@ -106,5 +114,35 @@ public class ListActivity extends AppCompatActivity implements viewInterface{
         public int getItemCount() {
             return dataList.size();
         }
+    }
+
+    private ItemTouchHelper.Callback createHelperCallback() {
+        /*First Param is for Up/Down motion, second is for Left/Right.
+        Note that we can supply 0, one constant (e.g. ItemTouchHelper.LEFT), or two constants (e.g.
+        ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) to specify what directions are allowed.
+        */
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(
+                0,
+                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+
+            //not used, as the first parameter above is 0
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+                                  RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+
+            @Override
+            public void onSwiped(final RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                int position = viewHolder.getAdapterPosition();
+                ctrl.onListItemSwiped(
+                        position,
+                        dataList.get(position)
+                );
+            }
+        };
+
+        return simpleItemTouchCallback;
     }
 }

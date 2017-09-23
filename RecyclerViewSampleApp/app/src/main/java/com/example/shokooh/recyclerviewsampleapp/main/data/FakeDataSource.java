@@ -54,4 +54,9 @@ public class FakeDataSource implements dataInterface {
         }
         return outputList;
     }
+
+    @Override
+    public void deleteListItem(ListItem li) {
+
+    }
 }
