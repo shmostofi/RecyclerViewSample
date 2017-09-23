@@ -9,4 +9,7 @@ import java.util.List;
 public interface dataInterface {
 
     List<ListItem> getData();
+
+    void deleteListItem(ListItem li);
+
 }

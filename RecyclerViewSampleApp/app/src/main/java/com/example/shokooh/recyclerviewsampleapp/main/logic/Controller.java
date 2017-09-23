@@ -33,5 +33,11 @@ public class Controller {
                 li.getColor(),
                 v);
     }
+
+    public void onListItemSwiped(int position, ListItem li)
+    {
+        vi.deleteListItem(position);
+        di.deleteListItem(li);
+    }
 }
 
