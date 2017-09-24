@@ -39,5 +39,11 @@ public class Controller {
         vi.deleteListItem(position);
         di.deleteListItem(li);
     }
+
+    public void onAddNewClicked(View v)
+    {
+        ListItem li = di.createNewItem();
+        vi.addNewItem(li);
+    }
 }
 

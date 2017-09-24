@@ -12,4 +12,6 @@ public interface dataInterface {
 
     void deleteListItem(ListItem li);
 
+    ListItem createNewItem();
+
 }

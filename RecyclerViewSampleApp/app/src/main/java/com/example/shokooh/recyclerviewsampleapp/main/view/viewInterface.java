@@ -15,4 +15,5 @@ public interface viewInterface {
     void setDataList(List<ListItem> data);
     void startDetailActivity(String content, String date, int colorResource, View v);
     void deleteListItem(int position);
+    void addNewItem(ListItem li);
 }
