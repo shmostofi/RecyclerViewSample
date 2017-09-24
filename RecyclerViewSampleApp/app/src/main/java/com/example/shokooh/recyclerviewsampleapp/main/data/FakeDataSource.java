@@ -59,4 +59,10 @@ public class FakeDataSource implements dataInterface {
     public void deleteListItem(ListItem li) {
 
     }
+
+    @Override
+    public ListItem createNewItem() {
+        ListItem li = new ListItem(drawables[random.nextInt(4)],dates[random.nextInt(4)], contents[random.nextInt(4)]);
+        return li;
+    }
 }

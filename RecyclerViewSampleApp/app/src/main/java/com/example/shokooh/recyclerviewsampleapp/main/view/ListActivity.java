@@ -159,13 +159,10 @@ public class ListActivity extends AppCompatActivity implements viewInterface, Vi
     }
 
     @Override
-    public void addNewItem(View v) {
+    public void addNewItem(ListItem li) {
+        dataList.add(li);
+        adp.notifyItemInserted(adp.getItemCount());
+        rv.smoothScrollToPosition(adp.getItemCount());
 
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss MM/dd/yyyy");
-        String currentDateandTime = sdf.format(new Date());
-
-        startDetailActivity("", currentDateandTime, R.drawable.green_drawable, v);
-
-        //TODO : add function to detailAct to save user input
     }
 }

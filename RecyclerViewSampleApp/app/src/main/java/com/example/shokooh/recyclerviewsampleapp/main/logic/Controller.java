@@ -42,7 +42,8 @@ public class Controller {
 
     public void onAddNewClicked(View v)
     {
-        vi.addNewItem(v);
+        ListItem li = di.createNewItem();
+        vi.addNewItem(li);
     }
 }
 
